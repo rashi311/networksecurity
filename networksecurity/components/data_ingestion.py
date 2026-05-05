@@ -1,4 +1,4 @@
-from networksecurity.exception.exception import NetwrokSecurityException
+from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
 import os
 import sys
@@ -22,7 +22,7 @@ class DataIngestion:
             self.data_ingestion_config = data_ingestion_config
 
         except Exception as e:
-            raise NetwrokSecurityException(e,sys)
+            raise NetworkSecurityException(e,sys)
     
     def export_collection_as_dataframe(self):
         try:
@@ -40,7 +40,7 @@ class DataIngestion:
             return df
               
         except Exception as e:
-            raise NetwrokSecurityException(e,sys)
+            raise NetworkSecurityException(e,sys)
     
     def export_data_as_feature_store(self,dataframe:pd.DataFrame):
         try:
@@ -51,7 +51,7 @@ class DataIngestion:
             dataframe.to_csv(feature_store_file_path,index=False,header=True)
             return dataframe
         except Exception as e:
-            raise NetwrokSecurityException(e,sys)
+            raise NetworkSecurityException(e,sys)
         
     def split_data_as_train_test(self,dataframe:pd.DataFrame):
         try:
@@ -70,7 +70,7 @@ class DataIngestion:
 
             logging.info("Exported train and test split data")
         except Exception as e:
-            raise NetwrokSecurityException(e,sys)    
+            raise NetworkSecurityException(e,sys)    
     def initiate_data_ingestion(self):
         try:
             dataframe = self.export_collection_as_dataframe()
@@ -81,7 +81,7 @@ class DataIngestion:
             
             return dataingestionartifact
         except Exception as e:
-            raise NetwrokSecurityException(e,sys)
+            raise NetworkSecurityException(e,sys)
 
 
 
