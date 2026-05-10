@@ -13,13 +13,11 @@ class TrainingPipelineConfig:
         self.artifact_dir=os.path.join(self.artifact_name,timestamp)
         self.timestamp : str = timestamp
         
-   
-
 
 class DataIngestionConfig:
-    def __init__(self,trainpipelineconfig:TrainingPipelineConfig):
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         self.data_ingestion_dir:str = os.path.join(
-            trainpipelineconfig.artifact_dir,
+            training_pipeline_config.artifact_dir,
             training_pipeline.DATA_INGESTTION_DIR_NAME
         )
 
