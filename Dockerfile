@@ -1,5 +1,5 @@
 FROM python:3.10-slim-buster
-WORKER /app
+WORKDIR /app
 COPY . /app
 
 RUN  apt -y && apt install awscli -y
